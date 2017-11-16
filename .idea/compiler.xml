@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="tcommon" />
+        <module name="tdao" />
+        <module name="tservice" />
+        <module name="ttweb" />
+        <module name="tweb" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="myProject1" target="1.8" />
+      <module name="tcommon" target="1.8" />
+      <module name="tdao" target="1.8" />
+      <module name="tservice" target="1.8" />
+      <module name="ttweb" target="1.8" />
+      <module name="tweb" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

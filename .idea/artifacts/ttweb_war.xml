@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ttweb:war">
+    <output-path>$PROJECT_DIR$/ttweb/target</output-path>
+    <root id="archive" name="ttweb.war">
+      <element id="artifact" artifact-name="ttweb:war exploded" />
+    </root>
+  </artifact>
+</component>

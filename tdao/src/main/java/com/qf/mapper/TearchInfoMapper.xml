@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qf.dao.TearchInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.qf.pojo.TearchInfo" >
+    <id column="tearchId" property="tearchid" jdbcType="INTEGER" />
+    <result column="tearchName" property="tearchname" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="subject" property="subject" jdbcType="VARCHAR" />
+    <result column="xbName" property="xbname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    tearchId, tearchName, tel, subject, xbName
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.qf.pojo.TearchInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tearch_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tearch_info
+    where tearchId = #{tearchid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tearch_info
+    where tearchId = #{tearchid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qf.pojo.TearchInfoExample" >
+    delete from tearch_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qf.pojo.TearchInfo" >
+    insert into tearch_info (tearchId, tearchName, tel, 
+      subject, xbName)
+    values (#{tearchid,jdbcType=INTEGER}, #{tearchname,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{subject,jdbcType=VARCHAR}, #{xbname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qf.pojo.TearchInfo" >
+    insert into tearch_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tearchid != null" >
+        tearchId,
+      </if>
+      <if test="tearchname != null" >
+        tearchName,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="subject != null" >
+        subject,
+      </if>
+      <if test="xbname != null" >
+        xbName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tearchid != null" >
+        #{tearchid,jdbcType=INTEGER},
+      </if>
+      <if test="tearchname != null" >
+        #{tearchname,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null" >
+        #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="xbname != null" >
+        #{xbname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qf.pojo.TearchInfoExample" resultType="java.lang.Integer" >
+    select count(*) from tearch_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tearch_info
+    <set >
+      <if test="record.tearchid != null" >
+        tearchId = #{record.tearchid,jdbcType=INTEGER},
+      </if>
+      <if test="record.tearchname != null" >
+        tearchName = #{record.tearchname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null" >
+        tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subject != null" >
+        subject = #{record.subject,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xbname != null" >
+        xbName = #{record.xbname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tearch_info
+    set tearchId = #{record.tearchid,jdbcType=INTEGER},
+      tearchName = #{record.tearchname,jdbcType=VARCHAR},
+      tel = #{record.tel,jdbcType=VARCHAR},
+      subject = #{record.subject,jdbcType=VARCHAR},
+      xbName = #{record.xbname,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qf.pojo.TearchInfo" >
+    update tearch_info
+    <set >
+      <if test="tearchname != null" >
+        tearchName = #{tearchname,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="subject != null" >
+        subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="xbname != null" >
+        xbName = #{xbname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tearchId = #{tearchid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qf.pojo.TearchInfo" >
+    update tearch_info
+    set tearchName = #{tearchname,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      subject = #{subject,jdbcType=VARCHAR},
+      xbName = #{xbname,jdbcType=VARCHAR}
+    where tearchId = #{tearchid,jdbcType=INTEGER}
+  </update>
+</mapper>

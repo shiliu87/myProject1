@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/myProject1.iml" filepath="$PROJECT_DIR$/myProject1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tcommon/tcommon.iml" filepath="$PROJECT_DIR$/tcommon/tcommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tdao/tdao.iml" filepath="$PROJECT_DIR$/tdao/tdao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tservice/tservice.iml" filepath="$PROJECT_DIR$/tservice/tservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ttweb/ttweb.iml" filepath="$PROJECT_DIR$/ttweb/ttweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tweb/tweb.iml" filepath="$PROJECT_DIR$/tweb/tweb.iml" />
+    </modules>
+  </component>
+</project>
